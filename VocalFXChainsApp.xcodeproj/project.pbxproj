@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F376B5C2A6EB9AC00406C77 /* FXEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F376B5B2A6EB9AC00406C77 /* FXEditingViewController.swift */; };
+		4F376B602A6EBD2800406C77 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F376B5F2A6EBD2800406C77 /* Config.swift */; };
+		4F376B622A6EC98D00406C77 /* RecordingAudioSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F376B612A6EC98D00406C77 /* RecordingAudioSystem.swift */; };
+		4F376B642A6EC99B00406C77 /* FXEditingAudioSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F376B632A6EC99B00406C77 /* FXEditingAudioSystem.swift */; };
+		4F376B662A6ECB3900406C77 /* AudioSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F376B652A6ECB3900406C77 /* AudioSystem.swift */; };
+		4F376B6B2A6ED53B00406C77 /* trap130bpm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4F376B6A2A6ED53B00406C77 /* trap130bpm.mp3 */; };
+		4F376B732A6FF2C800406C77 /* HarmonizerEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F376B722A6FF2C800406C77 /* HarmonizerEffect.swift */; };
+		4F376B752A6FF2D000406C77 /* RadioEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F376B742A6FF2D000406C77 /* RadioEffect.swift */; };
+		4F376B772A6FF33E00406C77 /* FXChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F376B762A6FF33E00406C77 /* FXChain.swift */; };
+		4F3C96412A6AEAE300CFB8AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C96402A6AEAE300CFB8AA /* AppDelegate.swift */; };
+		4F3C96432A6AEAE300CFB8AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C96422A6AEAE300CFB8AA /* SceneDelegate.swift */; };
+		4F3C96452A6AEAE300CFB8AA /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3C96442A6AEAE300CFB8AA /* RecordingViewController.swift */; };
+		4F3C96482A6AEAE300CFB8AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C96462A6AEAE300CFB8AA /* Main.storyboard */; };
+		4F3C964A2A6AEAE400CFB8AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C96492A6AEAE400CFB8AA /* Assets.xcassets */; };
+		4F3C964D2A6AEAE400CFB8AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F3C964B2A6AEAE400CFB8AA /* LaunchScreen.storyboard */; };
+		4F66057D2A77E19100A020D7 /* SwitchboardAudioEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 4F66057C2A77E19100A020D7 /* SwitchboardAudioEffects */; };
+		4F66057F2A77E19100A020D7 /* SwitchboardSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4F66057E2A77E19100A020D7 /* SwitchboardSDK */; };
+		4F6605812A77E19100A020D7 /* SwitchboardSuperpowered in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6605802A77E19100A020D7 /* SwitchboardSuperpowered */; };
+		4F6605832A77E19100A020D7 /* SwitchboardUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6605822A77E19100A020D7 /* SwitchboardUI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4F376B5B2A6EB9AC00406C77 /* FXEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXEditingViewController.swift; sourceTree = "<group>"; };
+		4F376B5F2A6EBD2800406C77 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4F376B612A6EC98D00406C77 /* RecordingAudioSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingAudioSystem.swift; sourceTree = "<group>"; };
+		4F376B632A6EC99B00406C77 /* FXEditingAudioSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXEditingAudioSystem.swift; sourceTree = "<group>"; };
+		4F376B652A6ECB3900406C77 /* AudioSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSystem.swift; sourceTree = "<group>"; };
+		4F376B6A2A6ED53B00406C77 /* trap130bpm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trap130bpm.mp3; sourceTree = "<group>"; };
+		4F376B722A6FF2C800406C77 /* HarmonizerEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonizerEffect.swift; sourceTree = "<group>"; };
+		4F376B742A6FF2D000406C77 /* RadioEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioEffect.swift; sourceTree = "<group>"; };
+		4F376B762A6FF33E00406C77 /* FXChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXChain.swift; sourceTree = "<group>"; };
+		4F3C963D2A6AEAE300CFB8AA /* VocalFXChainsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VocalFXChainsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F3C96402A6AEAE300CFB8AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4F3C96422A6AEAE300CFB8AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4F3C96442A6AEAE300CFB8AA /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
+		4F3C96472A6AEAE300CFB8AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4F3C96492A6AEAE400CFB8AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F3C964C2A6AEAE400CFB8AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4F3C964E2A6AEAE400CFB8AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F3C963A2A6AEAE300CFB8AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F66057F2A77E19100A020D7 /* SwitchboardSDK in Frameworks */,
+				4F6605832A77E19100A020D7 /* SwitchboardUI in Frameworks */,
+				4F66057D2A77E19100A020D7 /* SwitchboardAudioEffects in Frameworks */,
+				4F6605812A77E19100A020D7 /* SwitchboardSuperpowered in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F376B4C2A6EAB1100406C77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F376B5D2A6EBB4D00406C77 /* Recording */ = {
+			isa = PBXGroup;
+			children = (
+				4F3C96442A6AEAE300CFB8AA /* RecordingViewController.swift */,
+				4F376B612A6EC98D00406C77 /* RecordingAudioSystem.swift */,
+			);
+			path = Recording;
+			sourceTree = "<group>";
+		};
+		4F376B5E2A6EBB5600406C77 /* FXEditing */ = {
+			isa = PBXGroup;
+			children = (
+				4F376B5B2A6EB9AC00406C77 /* FXEditingViewController.swift */,
+				4F376B632A6EC99B00406C77 /* FXEditingAudioSystem.swift */,
+			);
+			path = FXEditing;
+			sourceTree = "<group>";
+		};
+		4F376B672A6ED4F000406C77 /* AudioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4F376B6A2A6ED53B00406C77 /* trap130bpm.mp3 */,
+			);
+			path = AudioFiles;
+			sourceTree = "<group>";
+		};
+		4F376B712A6FF2BD00406C77 /* FXChains */ = {
+			isa = PBXGroup;
+			children = (
+				4F376B722A6FF2C800406C77 /* HarmonizerEffect.swift */,
+				4F376B742A6FF2D000406C77 /* RadioEffect.swift */,
+				4F376B762A6FF33E00406C77 /* FXChain.swift */,
+			);
+			path = FXChains;
+			sourceTree = "<group>";
+		};
+		4F3C96342A6AEAE200CFB8AA = {
+			isa = PBXGroup;
+			children = (
+				4F3C963F2A6AEAE300CFB8AA /* VocalFXChainsApp */,
+				4F3C963E2A6AEAE300CFB8AA /* Products */,
+				4F376B4C2A6EAB1100406C77 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4F3C963E2A6AEAE300CFB8AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F3C963D2A6AEAE300CFB8AA /* VocalFXChainsApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F3C963F2A6AEAE300CFB8AA /* VocalFXChainsApp */ = {
+			isa = PBXGroup;
+			children = (
+				4F376B712A6FF2BD00406C77 /* FXChains */,
+				4F376B672A6ED4F000406C77 /* AudioFiles */,
+				4F376B5E2A6EBB5600406C77 /* FXEditing */,
+				4F376B5D2A6EBB4D00406C77 /* Recording */,
+				4F3C96402A6AEAE300CFB8AA /* AppDelegate.swift */,
+				4F3C96422A6AEAE300CFB8AA /* SceneDelegate.swift */,
+				4F3C96462A6AEAE300CFB8AA /* Main.storyboard */,
+				4F3C96492A6AEAE400CFB8AA /* Assets.xcassets */,
+				4F3C964B2A6AEAE400CFB8AA /* LaunchScreen.storyboard */,
+				4F3C964E2A6AEAE400CFB8AA /* Info.plist */,
+				4F376B5F2A6EBD2800406C77 /* Config.swift */,
+				4F376B652A6ECB3900406C77 /* AudioSystem.swift */,
+			);
+			path = VocalFXChainsApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F3C963C2A6AEAE300CFB8AA /* VocalFXChainsApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F3C96512A6AEAE400CFB8AA /* Build configuration list for PBXNativeTarget "VocalFXChainsApp" */;
+			buildPhases = (
+				4F3C96392A6AEAE300CFB8AA /* Sources */,
+				4F3C963A2A6AEAE300CFB8AA /* Frameworks */,
+				4F3C963B2A6AEAE300CFB8AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VocalFXChainsApp;
+			packageProductDependencies = (
+				4F66057C2A77E19100A020D7 /* SwitchboardAudioEffects */,
+				4F66057E2A77E19100A020D7 /* SwitchboardSDK */,
+				4F6605802A77E19100A020D7 /* SwitchboardSuperpowered */,
+				4F6605822A77E19100A020D7 /* SwitchboardUI */,
+			);
+			productName = VocalFXChainsApp;
+			productReference = 4F3C963D2A6AEAE300CFB8AA /* VocalFXChainsApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F3C96352A6AEAE200CFB8AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					4F3C963C2A6AEAE300CFB8AA = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 4F3C96382A6AEAE200CFB8AA /* Build configuration list for PBXProject "VocalFXChainsApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F3C96342A6AEAE200CFB8AA;
+			packageReferences = (
+				4F66057B2A77E19100A020D7 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */,
+			);
+			productRefGroup = 4F3C963E2A6AEAE300CFB8AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F3C963C2A6AEAE300CFB8AA /* VocalFXChainsApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F3C963B2A6AEAE300CFB8AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F3C964D2A6AEAE400CFB8AA /* LaunchScreen.storyboard in Resources */,
+				4F3C964A2A6AEAE400CFB8AA /* Assets.xcassets in Resources */,
+				4F3C96482A6AEAE300CFB8AA /* Main.storyboard in Resources */,
+				4F376B6B2A6ED53B00406C77 /* trap130bpm.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F3C96392A6AEAE300CFB8AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F3C96452A6AEAE300CFB8AA /* RecordingViewController.swift in Sources */,
+				4F3C96412A6AEAE300CFB8AA /* AppDelegate.swift in Sources */,
+				4F376B732A6FF2C800406C77 /* HarmonizerEffect.swift in Sources */,
+				4F376B642A6EC99B00406C77 /* FXEditingAudioSystem.swift in Sources */,
+				4F376B662A6ECB3900406C77 /* AudioSystem.swift in Sources */,
+				4F376B772A6FF33E00406C77 /* FXChain.swift in Sources */,
+				4F376B752A6FF2D000406C77 /* RadioEffect.swift in Sources */,
+				4F376B602A6EBD2800406C77 /* Config.swift in Sources */,
+				4F376B5C2A6EB9AC00406C77 /* FXEditingViewController.swift in Sources */,
+				4F3C96432A6AEAE300CFB8AA /* SceneDelegate.swift in Sources */,
+				4F376B622A6EC98D00406C77 /* RecordingAudioSystem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4F3C96462A6AEAE300CFB8AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F3C96472A6AEAE300CFB8AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4F3C964B2A6AEAE400CFB8AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F3C964C2A6AEAE400CFB8AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4F3C964F2A6AEAE400CFB8AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4F3C96502A6AEAE400CFB8AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F3C96522A6AEAE400CFB8AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VocalFXChainsApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.VocalFXChainsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F3C96532A6AEAE400CFB8AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VocalFXChainsApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.VocalFXChainsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F3C96382A6AEAE200CFB8AA /* Build configuration list for PBXProject "VocalFXChainsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F3C964F2A6AEAE400CFB8AA /* Debug */,
+				4F3C96502A6AEAE400CFB8AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F3C96512A6AEAE400CFB8AA /* Build configuration list for PBXNativeTarget "VocalFXChainsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F3C96522A6AEAE400CFB8AA /* Debug */,
+				4F3C96532A6AEAE400CFB8AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F66057B2A77E19100A020D7 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/switchboard-sdk/switchboard-sdk-ios";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F66057C2A77E19100A020D7 /* SwitchboardAudioEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F66057B2A77E19100A020D7 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardAudioEffects;
+		};
+		4F66057E2A77E19100A020D7 /* SwitchboardSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F66057B2A77E19100A020D7 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardSDK;
+		};
+		4F6605802A77E19100A020D7 /* SwitchboardSuperpowered */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F66057B2A77E19100A020D7 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardSuperpowered;
+		};
+		4F6605822A77E19100A020D7 /* SwitchboardUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F66057B2A77E19100A020D7 /* XCRemoteSwiftPackageReference "switchboard-sdk-ios" */;
+			productName = SwitchboardUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4F3C96352A6AEAE200CFB8AA /* Project object */;
+}

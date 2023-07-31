@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recording View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="RecordingViewController" id="BYZ-38-t0r" customClass="RecordingViewController" customModule="VocalFXChainsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CL5-xP-U3g">
+                                <rect key="frame" x="20" y="79" width="353" height="632"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchboard-sdk-logo-text" translatesAutoresizingMaskIntoConstraints="NO" id="YDg-EO-rJx">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="zgk-Lr-mOh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xn-d2-IjB">
+                                        <rect key="frame" x="0.0" y="50" width="353" height="365.33333333333331"/>
+                                        <string key="text">
+To start recording press Start Recording button.
+
+To listen to the beat without recording press Listen to Beat button.
+
+To enable live monitoring plug in headphones.
+
+Use the Enable FX Chain switch to enable or disable FX during live monitoring.
+
+Switch between the different FX Chains with the segmented control.
+
+After starting recording press Stop Recording to finish and jump to the FX Editing screen.
+</string>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADU-VR-oNR">
+                                        <rect key="frame" x="0.0" y="425.33333333333331" width="353" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Start Recording"/>
+                                        <connections>
+                                            <action selector="tappedRecordingButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="y42-s3-ULI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wo2-kN-1x4">
+                                        <rect key="frame" x="0.0" y="469.66666666666663" width="353" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Listen to Beat"/>
+                                        <connections>
+                                            <action selector="tappedBeatButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="u3z-0T-9PY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Monitoring Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-oI-UZR">
+                                        <rect key="frame" x="0.0" y="514" width="353" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdl-8J-Y5v">
+                                        <rect key="frame" x="0.0" y="542" width="353" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable FX Chain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OE-Ge-ntl">
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqs-zf-Ecf">
+                                                <rect key="frame" x="304" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="toggledFXChainSwitch" destination="BYZ-38-t0r" eventType="valueChanged" id="Lnc-Sn-ijP"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wqy-xt-wJs">
+                                        <rect key="frame" x="0.0" y="583" width="353" height="49"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected FX Chain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klX-JR-VRa" userLabel="Selected FX Chain">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z5l-jI-SKL">
+                                                <rect key="frame" x="0.0" y="18" width="353" height="32"/>
+                                                <segments>
+                                                    <segment title="Harmonizer"/>
+                                                    <segment title="Radio"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="selectedFXChain" destination="BYZ-38-t0r" eventType="valueChanged" id="gLi-jR-fHU"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="YDg-EO-rJx" secondAttribute="trailing" id="2oo-3f-yN8"/>
+                                    <constraint firstItem="YDg-EO-rJx" firstAttribute="top" secondItem="CL5-xP-U3g" secondAttribute="top" id="SPj-nb-Ke3"/>
+                                    <constraint firstAttribute="trailing" secondItem="mdl-8J-Y5v" secondAttribute="trailing" id="aqt-Iw-n8q"/>
+                                    <constraint firstItem="YDg-EO-rJx" firstAttribute="leading" secondItem="CL5-xP-U3g" secondAttribute="leading" id="m2X-BP-i2m"/>
+                                    <constraint firstItem="mdl-8J-Y5v" firstAttribute="leading" secondItem="CL5-xP-U3g" secondAttribute="leading" id="sGG-dQ-ezq"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="USt-r8-rDb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CL5-xP-U3g" secondAttribute="trailing" constant="20" id="8ER-II-ot7"/>
+                            <constraint firstItem="CL5-xP-U3g" firstAttribute="leading" secondItem="USt-r8-rDb" secondAttribute="leading" constant="20" id="F0y-AD-2B8"/>
+                            <constraint firstItem="CL5-xP-U3g" firstAttribute="top" secondItem="USt-r8-rDb" secondAttribute="top" constant="20" id="SHr-9r-Nmg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beatButton" destination="Wo2-kN-1x4" id="An9-9E-aqz"/>
+                        <outlet property="fxChainSelector" destination="Z5l-jI-SKL" id="AnB-Ak-DH0"/>
+                        <outlet property="fxChainSwitch" destination="bqs-zf-Ecf" id="353-Bk-a71"/>
+                        <outlet property="liveMonitoringActiveLabel" destination="fQH-oI-UZR" id="8JI-kr-e2T"/>
+                        <outlet property="recordingButton" destination="ADU-VR-oNR" id="0Q8-ru-Eb2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+        </scene>
+        <!--FX Editing View Controller-->
+        <scene sceneID="sHj-AI-hd1">
+            <objects>
+                <viewController storyboardIdentifier="FXEditingViewController" id="lXs-38-r3S" userLabel="FX Editing View Controller" customClass="FXEditingViewController" customModule="VocalFXChainsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zUx-1U-dlF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rig-SP-rY4">
+                                <rect key="frame" x="20" y="79" width="353" height="674.66666666666663"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchboard-sdk-logo-text" translatesAutoresizingMaskIntoConstraints="NO" id="CNa-hg-ms8">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dQX-mA-1KB"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygi-Ho-aq1">
+                                        <rect key="frame" x="0.0" y="50" width="353" height="284.33333333333331"/>
+                                        <string key="text">
+Enable or disable the FX Chain on the vocals.
+
+Select the current applied FX Chain.
+
+Change the current preset for the FX Chain.
+
+Change the individual volumes of the beat and vocals.
+
+Listen to the mix by tapping Start Playback.
+
+Export your mix with the Export button.
+</string>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEk-iN-irB">
+                                        <rect key="frame" x="0.0" y="344.33333333333331" width="353" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable FX Chain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3e-e4-wWj">
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agO-F7-MKh">
+                                                <rect key="frame" x="304" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="toggledFXChainSwitch" destination="lXs-38-r3S" eventType="valueChanged" id="Qxw-re-iVI"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8ew-7e-THW">
+                                        <rect key="frame" x="0.0" y="385.33333333333331" width="353" height="32"/>
+                                        <segments>
+                                            <segment title="Harmonizer"/>
+                                            <segment title="Radio"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="selectedFXChain" destination="lXs-38-r3S" eventType="valueChanged" id="Vnl-zX-w5E"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gaq-Gu-QTg">
+                                        <rect key="frame" x="0.0" y="426.33333333333331" width="353" height="49"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FX Chain Preset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs0-Tt-lEe">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5gi-tK-f89">
+                                                <rect key="frame" x="0.0" y="18.000000000000057" width="353" height="32"/>
+                                                <segments>
+                                                    <segment title="Low"/>
+                                                    <segment title="High"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="selectedFXChainPreset" destination="lXs-38-r3S" eventType="valueChanged" id="d22-Kk-gsh"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lSK-87-XSO">
+                                        <rect key="frame" x="0.0" y="485.33333333333343" width="353" height="100.66666666666669"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7jG-hL-1dl">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="50.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vocal Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vH4-Q0-aY7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1pg-1s-0HA">
+                                                        <rect key="frame" x="-2" y="20.333333333333258" width="357" height="31"/>
+                                                        <connections>
+                                                            <action selector="vocalVolumeChanged" destination="lXs-38-r3S" eventType="valueChanged" id="f62-fv-yRv"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1fO-Zj-ZDb">
+                                                <rect key="frame" x="0.0" y="50.333333333333258" width="353" height="50.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beat Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBN-VB-IaE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UNN-50-nFE">
+                                                        <rect key="frame" x="-2" y="20.333333333333371" width="357" height="31"/>
+                                                        <connections>
+                                                            <action selector="beatVolumeChanged" destination="lXs-38-r3S" eventType="valueChanged" id="JSS-bM-Rgb"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-cY-ba9">
+                                        <rect key="frame" x="0.0" y="596" width="353" height="34.333333333333371"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Start Playback"/>
+                                        <connections>
+                                            <action selector="tappedPlaybackButton" destination="lXs-38-r3S" eventType="touchUpInside" id="BLm-GZ-FOf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxF-o4-9TY">
+                                        <rect key="frame" x="0.0" y="640.33333333333337" width="353" height="34.333333333333371"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Export"/>
+                                        <connections>
+                                            <action selector="tappedExportButton" destination="lXs-38-r3S" eventType="touchUpInside" id="V30-oy-z6A"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lSK-87-XSO" secondAttribute="trailing" id="duN-HU-9If"/>
+                                    <constraint firstItem="lSK-87-XSO" firstAttribute="leading" secondItem="rig-SP-rY4" secondAttribute="leading" id="osq-bO-csi"/>
+                                    <constraint firstItem="CNa-hg-ms8" firstAttribute="top" secondItem="rig-SP-rY4" secondAttribute="top" id="sij-Pd-YD3"/>
+                                    <constraint firstItem="CNa-hg-ms8" firstAttribute="leading" secondItem="rig-SP-rY4" secondAttribute="leading" id="wUo-Am-6aE"/>
+                                    <constraint firstAttribute="trailing" secondItem="CNa-hg-ms8" secondAttribute="trailing" id="zd9-fC-rRC"/>
+                                </constraints>
+                            </stackView>
+                            <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOb-LO-aBO">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="moS-cl-MDP">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="moS-cl-MDP" secondAttribute="trailing" id="6ew-Ud-Irj"/>
+                                    <constraint firstAttribute="bottom" secondItem="moS-cl-MDP" secondAttribute="bottom" id="hYM-QX-ghr"/>
+                                    <constraint firstItem="moS-cl-MDP" firstAttribute="leading" secondItem="VOb-LO-aBO" secondAttribute="leading" id="iVY-KK-Qde"/>
+                                    <constraint firstItem="moS-cl-MDP" firstAttribute="top" secondItem="VOb-LO-aBO" secondAttribute="top" id="th5-LA-Uz1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xjs-aK-Tg7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xjs-aK-Tg7" firstAttribute="bottom" secondItem="VOb-LO-aBO" secondAttribute="bottom" id="Ev6-Vd-K5w"/>
+                            <constraint firstAttribute="trailing" secondItem="rig-SP-rY4" secondAttribute="trailing" constant="20" id="KRF-Ma-Dup"/>
+                            <constraint firstItem="Xjs-aK-Tg7" firstAttribute="trailing" secondItem="VOb-LO-aBO" secondAttribute="trailing" id="NCc-QE-eI2"/>
+                            <constraint firstItem="VOb-LO-aBO" firstAttribute="top" secondItem="Xjs-aK-Tg7" secondAttribute="top" id="cPZ-6z-vlw"/>
+                            <constraint firstItem="rig-SP-rY4" firstAttribute="top" secondItem="Xjs-aK-Tg7" secondAttribute="top" constant="20" id="eaW-Fr-d6q"/>
+                            <constraint firstItem="rig-SP-rY4" firstAttribute="leading" secondItem="Xjs-aK-Tg7" secondAttribute="leading" constant="20" id="qTe-QY-pQe"/>
+                            <constraint firstItem="VOb-LO-aBO" firstAttribute="leading" secondItem="Xjs-aK-Tg7" secondAttribute="leading" id="ylG-sB-OCV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beatVolumeSlider" destination="UNN-50-nFE" id="e8k-96-By3"/>
+                        <outlet property="exportButton" destination="YxF-o4-9TY" id="2Dp-Ed-jB8"/>
+                        <outlet property="fxChainPreset" destination="5gi-tK-f89" id="lRb-5e-AGK"/>
+                        <outlet property="fxChainSelector" destination="8ew-7e-THW" id="GkC-MT-vzO"/>
+                        <outlet property="fxChainSwitch" destination="agO-F7-MKh" id="w2e-Tr-kaL"/>
+                        <outlet property="loaderView" destination="VOb-LO-aBO" id="Ok0-5n-2E1"/>
+                        <outlet property="playbackButton" destination="cWf-cY-ba9" id="8Rc-3a-tsq"/>
+                        <outlet property="vocalVolumeSlider" destination="1pg-1s-0HA" id="tqd-Nn-Au3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbi-yk-b4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="989" y="-27"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" name="AccentColor"/>
+    <resources>
+        <image name="switchboard-sdk-logo-text" width="449.39999389648438" height="82"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.53700000047683716" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
