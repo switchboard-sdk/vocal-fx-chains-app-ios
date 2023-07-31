@@ -43,6 +43,7 @@ class FXEditingViewController: UIViewController {
     @IBAction func selectedFXChain() {
         Config.selectedFXChainIndex = fxChainSelector.selectedSegmentIndex
         audioSystem.selectFXChain()
+        selectedFXChainPreset()
     }
 
     @IBAction func selectedFXChainPreset() {
