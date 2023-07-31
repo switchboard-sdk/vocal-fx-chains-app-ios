@@ -58,8 +58,6 @@ class FXEditingAudioSystem: AudioSystem {
         beatPlayerNode.load(Bundle.main.url(forResource: "trap130bpm", withExtension: "mp3")!.absoluteString)
         beatPlayerNode.isLoopingEnabled = true
 
-        beatPlayerNode.duration()
-
         vocalPlayerNode.load(Config.cleanVocalRecordingFilePath, withFormat: Config.recordingFormat)
         vocalPlayerNode.isLoopingEnabled = true
 
