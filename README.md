@@ -1,3 +1,5 @@
+# Vocal FX Chains App - iOS
+
 ## Important Links
 
 <a href="https://docs.switchboard.audio/docs/examples/vocal-fx-chains/" target="_blank">Find more info on the Vocal FX Chains App HERE</a>
@@ -14,7 +16,7 @@
 
 *In this example we will create an app for voice recording over a beat with real-time and post-production FX chains for the vocals, and sharing capabilities for the end result.*
 
-## Vocal FX Chains App
+## Features
 
 The app has the following **features**:
 
