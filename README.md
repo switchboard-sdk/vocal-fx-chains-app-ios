@@ -1,3 +1,9 @@
+## Important Links
+
+<a href="https://docs.switchboard.audio/docs/examples/vocal-fx-chains/" target="_blank">Find more info on the Vocal FX Chains App HERE</a>
+
+<a href="https://docs.switchboard.audio/" target="_blank">Find more info on the Switchboard SDK HERE</a>
+
 ## About Vocal FX Chains
 
 *A very important use case for audio processing is making vocal performances more interesting by applying various effects.*
@@ -132,3 +138,9 @@ idBandpass-->idDistortion[GuitarDistortionNode]
 idDistortion-->idReverb[ReverbNode]
 idReverb-->idOutput(AudioGraph - OutputNode)
 ```
+
+## Important Links
+
+<a href="https://docs.switchboard.audio/docs/examples/vocal-fx-chains/" target="_blank">Find more info on the Vocal FX Chains App HERE</a>
+
+<a href="https://docs.switchboard.audio/" target="_blank">Find more info on the Switchboard SDK HERE</a>
