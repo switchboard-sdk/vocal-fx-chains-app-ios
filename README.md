@@ -108,13 +108,13 @@ The different effect nodes can be chained inside this subgraph.
 
 ### Harmonizer Effect
 
-This effect utilizes an autotune node to correct the pitch. The signal is split after the autotune pitch shifted by 4 notes in both directions to emulate harmonizing. It adds some reverb after mixing the pitch shifted outputs with the autotuned signal.
+This effect utilizes an automatic vocal pitch correction node to correct the pitch. The signal is split after the automatic vocal pitch correction pitch shifted by 4 notes in both directions to emulate harmonizing. It adds some reverb after mixing the pitch shifted outputs with the pitch corrected signal.
 
 #### Audio Graph
 
 ```mermaid
 flowchart TD
-idInput(AudioGraph - InputNode)-->idAT[AutotuneNode]
+idInput(AudioGraph - InputNode)-->idAT[AutomaticVocalPitchCorrectionNode]
 idAT-->idSplitter[SplitterNode]
 idSplitter-->idLowShift[Low Shift - PitchShiftNode]
 idLowShift-->idLowGain[Low Shift - GainNode]
