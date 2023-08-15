@@ -9,7 +9,7 @@ import SwitchboardSDK
 import SwitchboardSuperpowered
 
 class HarmonizerEffect: FXChain {
-    let avpcNode = SBAutotuneNode()
+    let avpcNode = SBAutomaticVocalPitchCorrectionNode()
     let busSplitterNode = SBBusSplitterNode()
     let lowPitchShiftNode = SBPitchShiftNode()
     let lowPitchShiftGainNode = SBGainNode()
