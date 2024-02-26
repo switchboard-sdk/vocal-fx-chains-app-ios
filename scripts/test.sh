@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 PROJECT_DIR="$(git rev-parse --show-toplevel)"
 XCODE_PROJECT_PATH="${PROJECT_DIR}/VocalFXChainsApp.xcodeproj"
 SCHEME_NAME="VocalFXChainsApp"
