@@ -26,7 +26,18 @@
 		4F66057F2A77E19100A020D7 /* SwitchboardSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4F66057E2A77E19100A020D7 /* SwitchboardSDK */; };
 		4F6605812A77E19100A020D7 /* SwitchboardSuperpowered in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6605802A77E19100A020D7 /* SwitchboardSuperpowered */; };
 		4F6605832A77E19100A020D7 /* SwitchboardUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6605822A77E19100A020D7 /* SwitchboardUI */; };
+		986BD5D02B8CD42C00AF212E /* VocalFXChainsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986BD5CF2B8CD42C00AF212E /* VocalFXChainsAppUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		986BD5D32B8CD42C00AF212E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F3C96352A6AEAE200CFB8AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F3C963C2A6AEAE300CFB8AA;
+			remoteInfo = VocalFXChainsApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4F376B5B2A6EB9AC00406C77 /* FXEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXEditingViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +57,8 @@
 		4F3C96492A6AEAE400CFB8AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F3C964C2A6AEAE400CFB8AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F3C964E2A6AEAE400CFB8AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		986BD5CD2B8CD42C00AF212E /* VocalFXChainsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VocalFXChainsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		986BD5CF2B8CD42C00AF212E /* VocalFXChainsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocalFXChainsAppUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +70,13 @@
 				4F6605832A77E19100A020D7 /* SwitchboardUI in Frameworks */,
 				4F66057D2A77E19100A020D7 /* SwitchboardAudioEffects in Frameworks */,
 				4F6605812A77E19100A020D7 /* SwitchboardSuperpowered in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		986BD5CA2B8CD42C00AF212E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				4F3C963F2A6AEAE300CFB8AA /* VocalFXChainsApp */,
+				986BD5CE2B8CD42C00AF212E /* VocalFXChainsAppUITests */,
 				4F3C963E2A6AEAE300CFB8AA /* Products */,
 				4F376B4C2A6EAB1100406C77 /* Frameworks */,
 			);
@@ -119,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				4F3C963D2A6AEAE300CFB8AA /* VocalFXChainsApp.app */,
+				986BD5CD2B8CD42C00AF212E /* VocalFXChainsAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +162,14 @@
 				4F376B652A6ECB3900406C77 /* AudioSystem.swift */,
 			);
 			path = VocalFXChainsApp;
+			sourceTree = "<group>";
+		};
+		986BD5CE2B8CD42C00AF212E /* VocalFXChainsAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				986BD5CF2B8CD42C00AF212E /* VocalFXChainsAppUITests.swift */,
+			);
+			path = VocalFXChainsAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +198,24 @@
 			productReference = 4F3C963D2A6AEAE300CFB8AA /* VocalFXChainsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		986BD5CC2B8CD42C00AF212E /* VocalFXChainsAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 986BD5D52B8CD42C00AF212E /* Build configuration list for PBXNativeTarget "VocalFXChainsAppUITests" */;
+			buildPhases = (
+				986BD5C92B8CD42C00AF212E /* Sources */,
+				986BD5CA2B8CD42C00AF212E /* Frameworks */,
+				986BD5CB2B8CD42C00AF212E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				986BD5D42B8CD42C00AF212E /* PBXTargetDependency */,
+			);
+			name = VocalFXChainsAppUITests;
+			productName = VocalFXChainsAppUITests;
+			productReference = 986BD5CD2B8CD42C00AF212E /* VocalFXChainsAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,11 +223,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					4F3C963C2A6AEAE300CFB8AA = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					986BD5CC2B8CD42C00AF212E = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 4F3C963C2A6AEAE300CFB8AA;
 					};
 				};
 			};
@@ -200,6 +252,7 @@
 			projectRoot = "";
 			targets = (
 				4F3C963C2A6AEAE300CFB8AA /* VocalFXChainsApp */,
+				986BD5CC2B8CD42C00AF212E /* VocalFXChainsAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -213,6 +266,13 @@
 				4F3C964A2A6AEAE400CFB8AA /* Assets.xcassets in Resources */,
 				4F3C96482A6AEAE300CFB8AA /* Main.storyboard in Resources */,
 				4F376B6B2A6ED53B00406C77 /* trap130bpm.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		986BD5CB2B8CD42C00AF212E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +297,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		986BD5C92B8CD42C00AF212E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				986BD5D02B8CD42C00AF212E /* VocalFXChainsAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		986BD5D42B8CD42C00AF212E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F3C963C2A6AEAE300CFB8AA /* VocalFXChainsApp */;
+			targetProxy = 986BD5D32B8CD42C00AF212E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4F3C96462A6AEAE300CFB8AA /* Main.storyboard */ = {
@@ -383,11 +459,12 @@
 				DEVELOPMENT_TEAM = NQ2VLM7NM7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VocalFXChainsApp/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app records microphone input to create musical recordings.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -411,11 +488,12 @@
 				DEVELOPMENT_TEAM = NQ2VLM7NM7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VocalFXChainsApp/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app records microphone input to create musical recordings.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,6 +504,51 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		986BD5D62B8CD42C00AF212E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.VocalFXChainsAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VocalFXChainsApp;
+			};
+			name = Debug;
+		};
+		986BD5D72B8CD42C00AF212E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.synervoz.VocalFXChainsAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VocalFXChainsApp;
 			};
 			name = Release;
 		};
@@ -450,6 +573,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		986BD5D52B8CD42C00AF212E /* Build configuration list for PBXNativeTarget "VocalFXChainsAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				986BD5D62B8CD42C00AF212E /* Debug */,
+				986BD5D72B8CD42C00AF212E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -457,8 +589,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/switchboard-sdk/switchboard-sdk-ios";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = exactVersion;
+				version = 1.8.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
