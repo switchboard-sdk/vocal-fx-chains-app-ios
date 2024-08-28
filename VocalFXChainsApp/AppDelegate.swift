@@ -14,7 +14,7 @@ import SwitchboardAudioEffects
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        SBSwitchboardSDK.initialize(withClientID: Config.clientID, clientSecret: Config.clientSecret)
+        SBSwitchboardSDK.initialize(withAppID: Config.clientID, appSecret: Config.clientSecret)
         SBSuperpoweredExtension.initialize(withLicenseKey: Config.superpoweredLicenseKey)
         SBAudioEffectsExtension.initialize()
 
