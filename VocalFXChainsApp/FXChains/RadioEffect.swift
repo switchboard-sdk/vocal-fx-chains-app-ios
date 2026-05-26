@@ -6,60 +6,51 @@
 //
 
 import SwitchboardSDK
-import SwitchboardSuperpowered
 
 class RadioEffect: FXChain {
-    let bandpassFilterNode = SBFilterNode()
-    let distortionNode = SBGuitarDistortionNode()
-    let reverbNode = SBReverbNode()
-
-    func setLowPreset() {
-        bandpassFilterNode.isEnabled = true
-        bandpassFilterNode.type = Bandlimited_Bandpass
-        bandpassFilterNode.frequency = 3648.0
-        bandpassFilterNode.octave = 0.7
-
-        reverbNode.isEnabled = true
-        reverbNode.mix = 0.008
-        reverbNode.width = 0.7
-        reverbNode.damp = 0.5
-        reverbNode.roomSize = 0.5
-        reverbNode.predelayMs = 10.0
-    }
-
-    func setHighPreset() {
-        bandpassFilterNode.isEnabled = true
-        bandpassFilterNode.type = Bandlimited_Bandpass
-        bandpassFilterNode.frequency = 3648.0
-        bandpassFilterNode.octave = 0.3
-
-        reverbNode.isEnabled = true
-        reverbNode.mix = 0.015
-        reverbNode.width = 0.7
-        reverbNode.damp = 0.5
-        reverbNode.roomSize = 0.75
-        reverbNode.predelayMs = 10.0
-    }
-
-    override init() {
-        super.init()
-
-        switch Config.radioPreset {
-        case 0:
-            setLowPreset()
-        default:
-            setHighPreset()
+    override func graphJSON(prefix: String) -> String {
+        """
+        {
+            "nodes": [
+                {"id": "\(prefix)FilterNode", "type": "Superpowered.Filter"},
+                {"id": "\(prefix)DistortionNode", "type": "Superpowered.GuitarDistortion"},
+                {"id": "\(prefix)ReverbNode", "type": "Superpowered.Reverb"}
+            ],
+            "connections": [
+                {"sourceNode": "inputNode", "destinationNode": "\(prefix)FilterNode"},
+                {"sourceNode": "\(prefix)FilterNode", "destinationNode": "\(prefix)DistortionNode"},
+                {"sourceNode": "\(prefix)DistortionNode", "destinationNode": "\(prefix)ReverbNode"},
+                {"sourceNode": "\(prefix)ReverbNode", "destinationNode": "outputNode"}
+            ]
         }
+        """
+    }
 
-        audioGraph.addNode(bandpassFilterNode)
-        audioGraph.addNode(distortionNode)
-        audioGraph.addNode(reverbNode)
+    override func setLowPreset(prefix: String) {
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)FilterNode")
+        Switchboard.setValue(2, forKey: "type", onObject: "\(prefix)FilterNode")       // Bandlimited_Bandpass
+        Switchboard.setValue(Float(3648.0), forKey: "frequency", onObject: "\(prefix)FilterNode")
+        Switchboard.setValue(Float(0.7), forKey: "octave", onObject: "\(prefix)FilterNode")
 
-        audioGraph.connect(audioGraph.inputNode, to: bandpassFilterNode)
-        audioGraph.connect(bandpassFilterNode, to: distortionNode)
-        audioGraph.connect(distortionNode, to: reverbNode)
-        audioGraph.connect(reverbNode, to: audioGraph.outputNode)
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.008), forKey: "mix", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.7), forKey: "width", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.5), forKey: "damp", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.5), forKey: "roomSize", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(10.0), forKey: "predelayMs", onObject: "\(prefix)ReverbNode")
+    }
 
-        audioGraph.start()
+    override func setHighPreset(prefix: String) {
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)FilterNode")
+        Switchboard.setValue(2, forKey: "type", onObject: "\(prefix)FilterNode")       // Bandlimited_Bandpass
+        Switchboard.setValue(Float(3648.0), forKey: "frequency", onObject: "\(prefix)FilterNode")
+        Switchboard.setValue(Float(0.3), forKey: "octave", onObject: "\(prefix)FilterNode")
+
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.015), forKey: "mix", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.7), forKey: "width", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.5), forKey: "damp", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.75), forKey: "roomSize", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(10.0), forKey: "predelayMs", onObject: "\(prefix)ReverbNode")
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwitchboardSDK
 
 struct Config {
     static let clientID = "Synervoz"
@@ -16,15 +15,12 @@ struct Config {
 
     static var cleanVocalRecordingFilePath: String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0].absoluteString + "vocal_recording_clean.wav"
+        return paths[0].path + "/vocal_recording_clean.wav"
     }
-    
-    static let recordingFormat: SBCodec = .wav
-
 
     static var finalMixRecordingFile: String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0].absoluteString + "final_mix.wav"
+        return paths[0].path + "/final_mix.wav"
     }
 
     static var applyFXChain = false
