@@ -8,5 +8,7 @@
 import SwitchboardSDK
 
 class FXChain {
-    let audioGraph = SBAudioGraph()
+    func graphJSON(prefix: String) -> String { "" }
+    func setLowPreset(prefix: String) {}
+    func setHighPreset(prefix: String) {}
 }

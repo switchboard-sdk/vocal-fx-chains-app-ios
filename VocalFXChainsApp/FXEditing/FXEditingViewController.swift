@@ -26,8 +26,8 @@ class FXEditingViewController: UIViewController {
         fxChainSwitch.isOn = audioSystem.applyFXChain
         fxChainSelector.selectedSegmentIndex = Config.selectedFXChainIndex
 
-        vocalVolumeSlider.value = audioSystem.vocalGainNode.gain
-        beatVolumeSlider.value = audioSystem.beatGainNode.gain
+        vocalVolumeSlider.value = audioSystem.vocalGain
+        beatVolumeSlider.value = audioSystem.beatGain
 
         audioSystem.start()
     }
@@ -91,11 +91,10 @@ class FXEditingViewController: UIViewController {
     }
 
     @IBAction func vocalVolumeChanged() {
-        audioSystem.vocalGainNode.gain = vocalVolumeSlider.value
+        audioSystem.vocalGain = vocalVolumeSlider.value
     }
 
     @IBAction func beatVolumeChanged() {
-        audioSystem.beatGainNode.gain = beatVolumeSlider.value
+        audioSystem.beatGain = beatVolumeSlider.value
     }
 }
-

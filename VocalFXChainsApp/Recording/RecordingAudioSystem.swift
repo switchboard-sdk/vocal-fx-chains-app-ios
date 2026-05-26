@@ -5,28 +5,24 @@
 //  Created by Iván Nádor on 2023. 07. 24..
 //
 
+import AVFoundation
 import SwitchboardSDK
-import SwitchboardAudioEffects
 
 protocol RecordingAudioSystemDelegate {
     func recordingAudioSystem(_: RecordingAudioSystem, isLiveMonitoringActive: Bool)
 }
 
 class RecordingAudioSystem: AudioSystem {
-    let inputSplitterNode = SBBusSplitterNode()
-    let inputRecorderNode = SBRecorderNode()
-    let fxChainNode = SBSubgraphProcessorNode()
-    let busSelectNode = SBBusSelectNode()
-    let muteNode = SBMuteNode()
-    let beatPlayerNode = SBAudioPlayerNode()
-    let mixerNode = SBMixerNode()
+    // Node ID prefixes to avoid conflicts with FXEditingAudioSystem
+    private static let harmPrefix = "recHarm"
+    private static let radioPrefix = "recRadio"
 
     let harmonizer = HarmonizerEffect()
     let radio = RadioEffect()
 
     var applyFXChain: Bool = Config.applyFXChain {
         didSet {
-            busSelectNode.selectedBus = applyFXChain ? 0 : 1;
+            Switchboard.setValue(applyFXChain ? 0 : 1, forKey: "selectedBus", onObject: "recFxApplySelectNode")
             Config.applyFXChain = applyFXChain
         }
     }
@@ -35,81 +31,141 @@ class RecordingAudioSystem: AudioSystem {
 
     override init() {
         super.init()
-        audioEngine.delegate = self
 
-        busSelectNode.selectedBus = applyFXChain ? 0 : 1;
-        selectFXChain()
+        let beatURL = Bundle.main.url(forResource: "trap130bpm", withExtension: "mp3")!.absoluteString
+        let graphJSON = """
+        {
+            "type": "Realtime",
+            "config": {
+                "microphoneEnabled": true,
+                "voiceProcessingEnabled": false,
+                "graph": {
+                    "nodes": [
+                        {"id": "recInputSplitterNode", "type": "BusSplitter"},
+                        {
+                            "id": "recRecorderNode",
+                            "type": "Recorder",
+                            "config": {
+                                "numberOfRecordedChannels": 2
+                            }
+                        },
+                        {
+                            "id": "recHarmonizerNode",
+                            "type": "SubgraphProcessor",
+                            "config": {"graph": \(harmonizer.graphJSON(prefix: Self.harmPrefix))}
+                        },
+                        {
+                            "id": "recRadioNode",
+                            "type": "SubgraphProcessor",
+                            "config": {"graph": \(radio.graphJSON(prefix: Self.radioPrefix))}
+                        },
+                        {"id": "recFxSelectNode", "type": "Switchboard.BusSelect"},
+                        {"id": "recFxApplySelectNode", "type": "Switchboard.BusSelect"},
+                        {"id": "recMuteNode", "type": "Switchboard.Mute"},
+                        {"id": "recBeatPlayerNode", "type": "AudioPlayer"},
+                        {"id": "recMixerNode", "type": "Mixer"}
+                    ],
+                    "connections": [
+                        {"sourceNode": "inputNode", "destinationNode": "recInputSplitterNode"},
+                        {"sourceNode": "recInputSplitterNode", "destinationNode": "recHarmonizerNode"},
+                        {"sourceNode": "recInputSplitterNode", "destinationNode": "recRadioNode"},
+                        {"sourceNode": "recHarmonizerNode", "destinationNode": "recFxSelectNode"},
+                        {"sourceNode": "recRadioNode", "destinationNode": "recFxSelectNode"},
+                        {"sourceNode": "recFxSelectNode", "destinationNode": "recFxApplySelectNode"},
+                        {"sourceNode": "recInputSplitterNode", "destinationNode": "recFxApplySelectNode"},
+                        {"sourceNode": "recInputSplitterNode", "destinationNode": "recRecorderNode"},
+                        {"sourceNode": "recFxApplySelectNode", "destinationNode": "recMuteNode"},
+                        {"sourceNode": "recBeatPlayerNode", "destinationNode": "recMixerNode"},
+                        {"sourceNode": "recMuteNode", "destinationNode": "recMixerNode"},
+                        {"sourceNode": "recMixerNode", "destinationNode": "outputNode"}
+                    ]
+                }
+            }
+        }
+        """
 
-        audioGraph.addNode(inputSplitterNode)
-        audioGraph.addNode(inputRecorderNode)
-        audioGraph.addNode(fxChainNode)
-        audioGraph.addNode(busSelectNode)
-        audioGraph.addNode(muteNode)
-        audioGraph.addNode(beatPlayerNode)
-        audioGraph.addNode(mixerNode)
+        let result = Switchboard.createEngine(withJSON: graphJSON)
+        guard result.success else {
+            fatalError("Failed to create Recording engine: \(result.error!)")
+        }
+        engineID = result.value! as String
 
-        audioGraph.connect(audioGraph.inputNode, to: inputSplitterNode)
-        audioGraph.connect(inputSplitterNode, to: fxChainNode)
-        audioGraph.connect(fxChainNode, to: busSelectNode)
-        audioGraph.connect(inputSplitterNode, to: busSelectNode)
-        audioGraph.connect(inputSplitterNode, to: inputRecorderNode)
-        audioGraph.connect(busSelectNode, to: muteNode)
-        audioGraph.connect(beatPlayerNode, to: mixerNode)
-        audioGraph.connect(muteNode, to: mixerNode)
-        audioGraph.connect(mixerNode, to: audioGraph.outputNode)
+        // Apply initial FX chain presets for both chains
+        if Config.harmonizerPreset == 0 {
+            harmonizer.setLowPreset(prefix: Self.harmPrefix)
+        } else {
+            harmonizer.setHighPreset(prefix: Self.harmPrefix)
+        }
+        if Config.radioPreset == 0 {
+            radio.setLowPreset(prefix: Self.radioPrefix)
+        } else {
+            radio.setHighPreset(prefix: Self.radioPrefix)
+        }
 
-        beatPlayerNode.load(Bundle.main.url(forResource: "trap130bpm", withExtension: "mp3")!.absoluteString)
-        beatPlayerNode.isLoopingEnabled = true
+        // Set initial FX chain selection (harmonizer = bus 0, radio = bus 1)
+        Switchboard.setValue(Config.selectedFXChainIndex, forKey: "selectedBus", onObject: "recFxSelectNode")
 
-        muteNode.isMuted = isSpeaker()
-        audioEngine.voiceProcessingEnabled = false
+        // Set initial FX apply/bypass selection (fx = bus 0, bypass = bus 1)
+        Switchboard.setValue(applyFXChain ? 0 : 1, forKey: "selectedBus", onObject: "recFxApplySelectNode")
 
-        audioEngine.microphoneEnabled = true
+        // Load beat
+        Switchboard.callAction(withObject: "recBeatPlayerNode", actionName: "load", params: ["audioFilePath": beatURL])
+        Switchboard.setValue(true, forKey: "isLoopingEnabled", onObject: "recBeatPlayerNode")
+
+        // Mute monitoring when output is speaker/receiver (to prevent feedback)
+        Switchboard.setValue(isSpeaker(), forKey: "isMuted", onObject: "recMuteNode")
+
+        // Observe audio route changes
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(audioRouteChanged),
+            name: AVAudioSession.routeChangeNotification,
+            object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     func selectFXChain() {
-        switch Config.selectedFXChainIndex {
-        case 0:
-            fxChainNode.audioGraph = harmonizer.audioGraph
-        default:
-            fxChainNode.audioGraph = radio.audioGraph
-        }
+        // Harmonizer = bus 0, Radio = bus 1
+        Switchboard.setValue(Config.selectedFXChainIndex, forKey: "selectedBus", onObject: "recFxSelectNode")
     }
 
     func startRecording() {
-        inputRecorderNode.start()
+        Switchboard.callAction(withObject: "recRecorderNode", actionName: "start", params: nil)
     }
 
     func stopRecording() {
-        inputRecorderNode.stop(Config.cleanVocalRecordingFilePath, withFormat: Config.recordingFormat)
+        Switchboard.setValue(Config.cleanVocalRecordingFilePath, forKey: "outputFilePath", onObject: "recRecorderNode")
+        Switchboard.callAction(withObject: "recRecorderNode", actionName: "stop", params: nil)
     }
 
     var isRecording: Bool {
-        return inputRecorderNode.isRecording
+        return Switchboard.getValueForKey("isRecording", object: "recRecorderNode").value as? Bool ?? false
     }
 
     func startBeat() {
-        beatPlayerNode.play()
+        Switchboard.callAction(withObject: "recBeatPlayerNode", actionName: "play", params: nil)
     }
 
     func stopBeat() {
-        beatPlayerNode.stop()
+        Switchboard.callAction(withObject: "recBeatPlayerNode", actionName: "stop", params: nil)
     }
 
     var isBeatPlaying: Bool {
-        return beatPlayerNode.isPlaying
+        return Switchboard.getValueForKey("isPlaying", object: "recBeatPlayerNode").value as? Bool ?? false
     }
 
     func isSpeaker() -> Bool {
-        return audioEngine.currentOutputRoute == .builtInSpeaker || audioEngine.currentOutputRoute == .builtInReceiver
+        let outputs = AVAudioSession.sharedInstance().currentRoute.outputs
+        return outputs.contains { $0.portType == .builtInSpeaker || $0.portType == .builtInReceiver }
     }
-}
 
-extension RecordingAudioSystem: SBAudioEngineDelegate {
-    func audioEngine(_: SBAudioEngine, inputRouteChanged currentInputRoute: AVAudioSession.Port) {}
-
-    func audioEngine(_: SBAudioEngine, outputRouteChanged currentOutputRoute: AVAudioSession.Port) {
-        muteNode.isMuted = isSpeaker()
-        delegate?.recordingAudioSystem(self, isLiveMonitoringActive: !isSpeaker())
+    @objc private func audioRouteChanged(_ notification: Notification) {
+        let muted = isSpeaker()
+        Switchboard.setValue(muted, forKey: "isMuted", onObject: "recMuteNode")
+        delegate?.recordingAudioSystem(self, isLiveMonitoringActive: !muted)
     }
 }

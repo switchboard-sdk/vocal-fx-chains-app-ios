@@ -6,93 +6,79 @@
 //
 
 import SwitchboardSDK
-import SwitchboardSuperpowered
 
 class HarmonizerEffect: FXChain {
-    let avpcNode = SBAutomaticVocalPitchCorrectionNode()
-    let busSplitterNode = SBBusSplitterNode()
-    let lowPitchShiftNode = SBPitchShiftNode()
-    let lowPitchShiftGainNode = SBGainNode()
-    let highPitchShiftNode = SBPitchShiftNode()
-    let highPitchShiftGainNode = SBGainNode()
-    let mixerNode = SBMixerNode()
-    let reverbNode = SBReverbNode()
-
-    func setLowPreset() {
-        avpcNode.isEnabled = true
-        avpcNode.speed = MEDIUM
-        avpcNode.range = WIDE
-        avpcNode.scale = CMAJOR
-
-        lowPitchShiftNode.isEnabled = true
-        lowPitchShiftNode.pitchShiftCents = -400
-        lowPitchShiftGainNode.gain = 0.4
-
-        highPitchShiftNode.isEnabled = true
-        highPitchShiftNode.pitchShiftCents = 400
-        highPitchShiftGainNode.gain = 0.4
-
-        reverbNode.isEnabled = true
-        reverbNode.mix = 0.008
-        reverbNode.width = 0.7
-        reverbNode.damp = 0.5
-        reverbNode.roomSize = 0.5
-        reverbNode.predelayMs = 10.0
-    }
-
-    func setHighPreset() {
-        avpcNode.isEnabled = true
-        avpcNode.speed = EXTREME
-        avpcNode.range = WIDE
-        avpcNode.scale = CMAJOR
-
-        lowPitchShiftNode.isEnabled = true
-        lowPitchShiftNode.pitchShiftCents = -400
-        lowPitchShiftGainNode.gain = 1.0
-
-        highPitchShiftNode.isEnabled = true
-        highPitchShiftNode.pitchShiftCents = 400
-        highPitchShiftGainNode.gain = 1.0
-
-        reverbNode.isEnabled = true
-        reverbNode.mix = 0.015
-        reverbNode.width = 0.7
-        reverbNode.damp = 0.5
-        reverbNode.roomSize = 0.75
-        reverbNode.predelayMs = 10.0
-    }
-
-    override init() {
-        super.init()
-
-        switch Config.harmonizerPreset {
-        case 0:
-            setLowPreset()
-        default:
-            setHighPreset()
+    override func graphJSON(prefix: String) -> String {
+        """
+        {
+            "nodes": [
+                {"id": "\(prefix)AvpcNode", "type": "Superpowered.AutomaticVocalPitchCorrection"},
+                {"id": "\(prefix)BusSplitterNode", "type": "BusSplitter"},
+                {"id": "\(prefix)LowPitchShiftNode", "type": "Superpowered.PitchShift"},
+                {"id": "\(prefix)LowGainNode", "type": "Switchboard.Gain"},
+                {"id": "\(prefix)HighPitchShiftNode", "type": "Superpowered.PitchShift"},
+                {"id": "\(prefix)HighGainNode", "type": "Switchboard.Gain"},
+                {"id": "\(prefix)MixerNode", "type": "Mixer"},
+                {"id": "\(prefix)ReverbNode", "type": "Superpowered.Reverb"}
+            ],
+            "connections": [
+                {"sourceNode": "inputNode", "destinationNode": "\(prefix)AvpcNode"},
+                {"sourceNode": "\(prefix)AvpcNode", "destinationNode": "\(prefix)BusSplitterNode"},
+                {"sourceNode": "\(prefix)BusSplitterNode", "destinationNode": "\(prefix)LowPitchShiftNode"},
+                {"sourceNode": "\(prefix)BusSplitterNode", "destinationNode": "\(prefix)HighPitchShiftNode"},
+                {"sourceNode": "\(prefix)BusSplitterNode", "destinationNode": "\(prefix)MixerNode"},
+                {"sourceNode": "\(prefix)LowPitchShiftNode", "destinationNode": "\(prefix)LowGainNode"},
+                {"sourceNode": "\(prefix)LowGainNode", "destinationNode": "\(prefix)MixerNode"},
+                {"sourceNode": "\(prefix)HighPitchShiftNode", "destinationNode": "\(prefix)HighGainNode"},
+                {"sourceNode": "\(prefix)HighGainNode", "destinationNode": "\(prefix)MixerNode"},
+                {"sourceNode": "\(prefix)MixerNode", "destinationNode": "\(prefix)ReverbNode"},
+                {"sourceNode": "\(prefix)ReverbNode", "destinationNode": "outputNode"}
+            ]
         }
+        """
+    }
 
-        audioGraph.addNode(avpcNode)
-        audioGraph.addNode(busSplitterNode)
-        audioGraph.addNode(lowPitchShiftNode)
-        audioGraph.addNode(lowPitchShiftGainNode)
-        audioGraph.addNode(highPitchShiftNode)
-        audioGraph.addNode(highPitchShiftGainNode)
-        audioGraph.addNode(mixerNode)
-        audioGraph.addNode(reverbNode)
+    override func setLowPreset(prefix: String) {
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)AvpcNode")
+        Switchboard.setValue(1, forKey: "speed", onObject: "\(prefix)AvpcNode")   // MEDIUM
+        Switchboard.setValue(0, forKey: "range", onObject: "\(prefix)AvpcNode")   // WIDE
+        Switchboard.setValue(1, forKey: "scale", onObject: "\(prefix)AvpcNode")   // CMAJOR
 
-        audioGraph.connect(audioGraph.inputNode, to: avpcNode)
-        audioGraph.connect(avpcNode, to: busSplitterNode)
-        audioGraph.connect(busSplitterNode, to: lowPitchShiftNode)
-        audioGraph.connect(busSplitterNode, to: highPitchShiftNode)
-        audioGraph.connect(busSplitterNode, to: mixerNode)
-        audioGraph.connect(lowPitchShiftNode, to: lowPitchShiftGainNode)
-        audioGraph.connect(lowPitchShiftGainNode, to: mixerNode)
-        audioGraph.connect(highPitchShiftNode, to: highPitchShiftGainNode)
-        audioGraph.connect(highPitchShiftGainNode, to: mixerNode)
-        audioGraph.connect(mixerNode, to: reverbNode)
-        audioGraph.connect(reverbNode, to: audioGraph.outputNode)
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)LowPitchShiftNode")
+        Switchboard.setValue(-400, forKey: "pitchShiftCents", onObject: "\(prefix)LowPitchShiftNode")
+        Switchboard.setValue(Float(0.4), forKey: "gain", onObject: "\(prefix)LowGainNode")
 
-        audioGraph.start()
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)HighPitchShiftNode")
+        Switchboard.setValue(400, forKey: "pitchShiftCents", onObject: "\(prefix)HighPitchShiftNode")
+        Switchboard.setValue(Float(0.4), forKey: "gain", onObject: "\(prefix)HighGainNode")
+
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.008), forKey: "mix", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.7), forKey: "width", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.5), forKey: "damp", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.5), forKey: "roomSize", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(10.0), forKey: "predelayMs", onObject: "\(prefix)ReverbNode")
+    }
+
+    override func setHighPreset(prefix: String) {
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)AvpcNode")
+        Switchboard.setValue(2, forKey: "speed", onObject: "\(prefix)AvpcNode")   // EXTREME
+        Switchboard.setValue(0, forKey: "range", onObject: "\(prefix)AvpcNode")   // WIDE
+        Switchboard.setValue(1, forKey: "scale", onObject: "\(prefix)AvpcNode")   // CMAJOR
+
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)LowPitchShiftNode")
+        Switchboard.setValue(-400, forKey: "pitchShiftCents", onObject: "\(prefix)LowPitchShiftNode")
+        Switchboard.setValue(Float(1.0), forKey: "gain", onObject: "\(prefix)LowGainNode")
+
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)HighPitchShiftNode")
+        Switchboard.setValue(400, forKey: "pitchShiftCents", onObject: "\(prefix)HighPitchShiftNode")
+        Switchboard.setValue(Float(1.0), forKey: "gain", onObject: "\(prefix)HighGainNode")
+
+        Switchboard.setValue(true, forKey: "enabled", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.015), forKey: "mix", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.7), forKey: "width", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.5), forKey: "damp", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(0.75), forKey: "roomSize", onObject: "\(prefix)ReverbNode")
+        Switchboard.setValue(Float(10.0), forKey: "predelayMs", onObject: "\(prefix)ReverbNode")
     }
 }
